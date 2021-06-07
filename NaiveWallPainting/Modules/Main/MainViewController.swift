@@ -9,6 +9,7 @@ import UIKit
 import ARKit
 import SceneKit
 import RealityKit
+import Photos
 
 class MainViewController: UIViewController {
 
@@ -70,6 +71,43 @@ class MainViewController: UIViewController {
     }
 
     // MARK: - Actions
+
+    @IBAction func takeScreenshot() {
+        let takeScreenshotBlock = { [weak self] in
+            guard let self = self else { return }
+            UIImageWriteToSavedPhotosAlbum(self.arView.snapshot(), nil, nil, nil)
+            DispatchQueue.main.async {
+                let flashOverlay = UIView(frame: self.arView.frame)
+                flashOverlay.backgroundColor = UIColor.white
+                self.arView.addSubview(flashOverlay)
+                UIView.animate(withDuration: 0.25, animations: {
+                    flashOverlay.alpha = 0.0
+                }, completion: { _ in
+                    flashOverlay.removeFromSuperview()
+                })
+            }
+        }
+
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized:
+            takeScreenshotBlock()
+        case .restricted, .denied:
+            let title = "Photos access denied"
+            let message = "Please enable Photos access for this application in Settings > Privacy to allow saving screenshots."
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({ (authorizationStatus) in
+                if authorizationStatus == .authorized {
+                    takeScreenshotBlock()
+                }
+            })
+        default:
+            break
+        }
+    }
 
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         let tapLocation: CGPoint = sender.location(in: arView)
