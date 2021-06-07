@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PersonalizationItemCollectionViewCell" customModule="NaiveWallPainting" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBt-6W-7q4">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-ML-uNT">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAD-Xd-Qjb">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="QEZ-ML-uNT" firstAttribute="top" secondItem="qBt-6W-7q4" secondAttribute="top" id="0UA-ED-wVF"/>
+                        <constraint firstAttribute="bottom" secondItem="BAD-Xd-Qjb" secondAttribute="bottom" id="7rd-fR-gOX"/>
+                        <constraint firstItem="BAD-Xd-Qjb" firstAttribute="top" secondItem="qBt-6W-7q4" secondAttribute="top" id="FKv-I8-mHE"/>
+                        <constraint firstAttribute="bottom" secondItem="QEZ-ML-uNT" secondAttribute="bottom" id="HRm-dx-6h1"/>
+                        <constraint firstAttribute="trailing" secondItem="BAD-Xd-Qjb" secondAttribute="trailing" id="Sup-RN-tnd"/>
+                        <constraint firstAttribute="trailing" secondItem="QEZ-ML-uNT" secondAttribute="trailing" id="W4H-6N-feI"/>
+                        <constraint firstItem="BAD-Xd-Qjb" firstAttribute="leading" secondItem="qBt-6W-7q4" secondAttribute="leading" id="kQD-mP-zyI"/>
+                        <constraint firstItem="QEZ-ML-uNT" firstAttribute="leading" secondItem="qBt-6W-7q4" secondAttribute="leading" id="rvr-Ng-AB9"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectedCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="jKz-fX-1OP">
+                    <rect key="frame" x="50" y="0.0" width="20" height="20"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="qBt-6W-7q4" secondAttribute="bottom" id="2D5-z7-aNF"/>
+                <constraint firstItem="qBt-6W-7q4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qfe-lN-L2A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jKz-fX-1OP" secondAttribute="trailing" id="RZL-Wy-wmP"/>
+                <constraint firstAttribute="trailing" secondItem="qBt-6W-7q4" secondAttribute="trailing" id="dGT-Gk-nkm"/>
+                <constraint firstItem="qBt-6W-7q4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uIh-to-Z9Z"/>
+                <constraint firstItem="jKz-fX-1OP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zfO-5L-6is"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatarView" destination="QEZ-ML-uNT" id="36X-sh-PhZ"/>
+                <outlet property="borderView" destination="qBt-6W-7q4" id="ckH-UO-biy"/>
+                <outlet property="colorView" destination="BAD-Xd-Qjb" id="myd-7V-Tj0"/>
+                <outlet property="selectedImage" destination="jKz-fX-1OP" id="weZ-1E-2XX"/>
+            </connections>
+            <point key="canvasLocation" x="128.98550724637681" y="153.34821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="selectedCheckmark" width="20" height="20"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
