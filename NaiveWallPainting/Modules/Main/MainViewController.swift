@@ -209,6 +209,7 @@ extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedColor = colors[indexPath.item]
         if let node = selectedWall {
+            node.opacity = 1
             node.geometry?.materials.first?.diffuse.contents = colors[indexPath.item]
         }
     }
