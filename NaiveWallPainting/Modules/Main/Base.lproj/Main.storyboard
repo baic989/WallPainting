@@ -53,10 +53,10 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMC-Ya-PbK">
-                                <rect key="frame" x="32" y="728" width="350" height="100"/>
+                                <rect key="frame" x="32" y="730" width="350" height="90"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-mm-i0H">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oOf-hi-Nky">
                                             <size key="itemSize" width="65" height="60"/>
@@ -84,14 +84,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Fli-mm-i0H" firstAttribute="top" secondItem="xMC-Ya-PbK" secondAttribute="top" id="BFT-q0-FxU"/>
-                                    <constraint firstAttribute="height" constant="100" id="P7g-0j-H4G"/>
+                                    <constraint firstAttribute="height" constant="90" id="P7g-0j-H4G"/>
                                     <constraint firstAttribute="bottom" secondItem="Fli-mm-i0H" secondAttribute="bottom" id="rcd-xY-hu6"/>
                                     <constraint firstItem="Fli-mm-i0H" firstAttribute="leading" secondItem="xMC-Ya-PbK" secondAttribute="leading" id="spi-dD-8mD"/>
                                     <constraint firstAttribute="trailing" secondItem="Fli-mm-i0H" secondAttribute="trailing" id="usk-w3-LUg"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUh-tR-Vfk">
-                                <rect key="frame" x="136.5" y="828" width="141" height="34"/>
+                                <rect key="frame" x="136.5" y="820" width="141" height="34"/>
                                 <subviews>
                                     <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-Ew-tPo">
                                         <rect key="frame" x="0.0" y="0.0" width="141" height="34"/>
@@ -141,7 +141,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fIW-8f-kgI" secondAttribute="trailing" constant="32" id="WMT-Ms-0Kd"/>
                             <constraint firstItem="ED6-L2-9td" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WlO-di-UXf"/>
                             <constraint firstItem="eUh-tR-Vfk" firstAttribute="centerX" secondItem="ED6-L2-9td" secondAttribute="centerX" id="ill-N2-WEK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eUh-tR-Vfk" secondAttribute="bottom" id="pWK-Ik-VqE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eUh-tR-Vfk" secondAttribute="bottom" constant="8" id="pWK-Ik-VqE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xMC-Ya-PbK" secondAttribute="trailing" constant="32" id="t4E-Zg-veV"/>
                             <constraint firstAttribute="bottom" secondItem="ED6-L2-9td" secondAttribute="bottom" id="y95-lR-eQh"/>
                         </constraints>

@@ -25,7 +25,6 @@ class MainViewController: UIViewController {
     @IBOutlet private var statusLabel: UILabel!
     @IBOutlet private var statusView: UIVisualEffectView!
     @IBOutlet private var colorsContainerView: UIView!
-    @IBOutlet private var colorsContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet var colorsCollectionView: UICollectionView!
 
     // MARK: - Lifecycle
@@ -122,7 +121,7 @@ class MainViewController: UIViewController {
                 }
             } else {
                 selectedWall = targetPlane.node
-                statusLabel.text = "You have selected a wall, now choose a color and tap the wall again to apply the paint."
+                statusLabel.text = "You have selected a wall, now choose a color to apply the paint."
             }
         } else {
             statusLabel.text = "There is no surface detected, move the camera around to scan."
@@ -241,6 +240,8 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - Extension UICollectionViewDelegate
 
 extension MainViewController: UICollectionViewDelegate {
 
