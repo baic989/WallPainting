@@ -109,22 +109,45 @@ class MainViewController: UIViewController {
     }
 
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
+
         let tapLocation: CGPoint = sender.location(in: arView)
-        if let targetPlane = arView.hitTest(tapLocation, options: [.firstFoundOnly: true]).first {
-            if targetPlane.node == selectedWall {
-                if let color = selectedColor {
-                    targetPlane.node.opacity = 1
-                    targetPlane.node.geometry?.materials.first?.diffuse.contents = color
-                    statusLabel.text = "Looks good!"
-                } else {
-                    statusLabel.text = "You must select the color first."
+        var hitTestNode: SCNNode? = nil
+
+        // Hit test was deprecated in iOS 14 and it doesn't work any more
+        if #available(iOS 14.0, *) {
+            if let query = arView.raycastQuery(from: tapLocation, allowing: .existingPlaneGeometry, alignment: .vertical), let result = arView.session.raycast(query).first, let nodeAnchor = result.anchor {
+                hitTestNode = arView.node(for: nodeAnchor)
+                if hitTestNode?.geometry == nil {
+                    guard let device = arView.device, let meshGeometry = ARSCNPlaneGeometry(device: device)
+                        else { fatalError("Can't create plane geometry") }
+                    meshGeometry.update(from: ARPlaneAnchor(anchor: nodeAnchor).geometry)
+                    hitTestNode?.geometry = meshGeometry
+                    hitTestNode?.geometry?.firstMaterial?.diffuse.contents = UIColor.lightGray
+                    hitTestNode?.opacity = 0.7
                 }
-            } else {
-                selectedWall = targetPlane.node
-                statusLabel.text = "You have selected a wall, now choose a color to apply the paint."
             }
         } else {
+            if let result = arView.hitTest(tapLocation, options: [.firstFoundOnly: true]).first {
+                hitTestNode = result.node
+            }
+        }
+
+        guard let targetNode = hitTestNode else {
             statusLabel.text = "There is no surface detected, move the camera around to scan."
+            return
+        }
+
+        if hitTestNode == selectedWall {
+            if let color = selectedColor {
+                targetNode.opacity = 1
+                targetNode.geometry?.materials.first?.diffuse.contents = color
+                statusLabel.text = "Looks good!"
+            } else {
+                statusLabel.text = "You must select the color first."
+            }
+        } else {
+            selectedWall = targetNode
+            statusLabel.text = "You have selected a wall, now choose a color to apply the paint."
         }
     }
 
