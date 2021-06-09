@@ -12,7 +12,9 @@ For current version of the app, LIDAR wasn't implemented because of my testing l
 ## Installing and testing
 
 Development and testing done on iPhone 11 running iOS 13.7; Xcode 12.4.
+
 The best experience would be using 13 < iOS < 14.
+
 The lowest supported version is iOS 13.
 
 To run the project clone or download the code. To run on device you must change the bundle identifier and select a team (doesn't have to be paid, just an AppleID user will be fine). If you are testing on device that has a different AppleID than Xcode, you may need to trust the computer when connecting the iPhone and under iPhone Settings > General > Device management select *"Apple development: [your apple ID]"* to trust the developer.
